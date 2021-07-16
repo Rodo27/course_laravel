@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     protected static function booted(){
         static::saved(function($user){
-            dd("Clousure {$user->id}");
+            //dd("Clousure {$user->id}");
         });
     }
 

@@ -14,7 +14,7 @@ class UserObserver
      */
     public function created(User $user)
     {
-        print("Usuario Creado");
+        //print("Usuario Creado");
     }
 
     /**
@@ -25,7 +25,7 @@ class UserObserver
      */
     public function updated(User $user)
     {
-        print('User update');
+        //print('User update');
     }
 
     /**
