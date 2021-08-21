@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactusController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
@@ -22,9 +23,20 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
-Route::get('courses', [CourseController::class, 'index'])->name('courses.index');
+
+Route::resource('courses', CourseController::class);
+
+Route::view('aboutus', 'aboutus')->name('aboutus');
+
+Route::get('contactus', [ContactusController::class, 'index'])->name('contactus.index');
+
+Route::post('contactus', [ContactusController::class, 'store'])->name('contactus.store');
+
+//Route::resource('asignaturas', CourseController::class)->parameters(['asignaturas' => 'courses'])->names('courses');
+
+/* Route::get('courses', [CourseController::class, 'index'])->name('courses.index');
 
 Route::get('courses/create', [CourseController::class, 'create'])->name('courses.create');
 
@@ -36,6 +48,8 @@ Route::get('courses/{course}/edit', [CourseController::class, 'edit'])->name('co
 
 Route::put('courses/{course}', [CourseController::class, 'update'])->name('courses.update');
 
+Route::delete('courses/{course}', [CourseController::class, 'destroy'])->name('courses.destroy');
+ */
 
 /*
 Route::get('coursess/{Course}/{categoria?}', function ($Course, $categoria = null) {

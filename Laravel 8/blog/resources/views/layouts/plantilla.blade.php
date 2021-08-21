@@ -7,12 +7,22 @@
     <title>@yield('title')</title>
     <!-- favicon -->
     <!-- estilos -->
+
+    <style>
+        .active{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <!-- header -->
     <!-- nav -->
+    @include('layouts.partials.header')
+
     @yield('content')
 
+    @include('layouts.partials.footer')
     <!-- footer -->
     <!-- script -->
 </body>
